@@ -8,7 +8,7 @@ const cars = (state = [], action) => {
         case 'ADD_CAR':
             return [ ...state, action.value]
         case 'REMOVE_CAR':
-            return [...state.splice(action.value, 1)]
+            return [...state.slice(0, action.value), ...state.slice(action.value + 1)]
         default:
             return state
     }
